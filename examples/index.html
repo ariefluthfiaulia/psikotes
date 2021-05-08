@@ -124,40 +124,7 @@
 </body>
 <script>
 
-    class ZoomContainer {
-
-        constructor() {
-            this.scale = 1;
-        }
-
-        zoom(e) {
-            e.preventDefault();
-            if (!e.shiftKey) return;
-            let {
-                scale
-            } = this;
-            const newScale = scale + (e.wheelDelta < 0 ? -0.25 : 0.25);
-            scale = newScale > 2 || newScale < 0.5 ? scale : newScale;
-            subjx(e.currentTarget).css({
-                transform: `scale(${scale},${scale})`
-            });
-            this.scale = scale;
-        }
-
-    }
-
-    const zoomSvg = new ZoomContainer(),
-        zoomHtml = new ZoomContainer();
-
-    subjx('#svg-container')
-        .on('mousewheel', e => {
-            zoomSvg.zoom(e);
-        });
-
-    subjx('#stack')
-        .on('mousewheel', e => {
-            zoomHtml.zoom(e);
-        });
+   
 
     // define methods
     const methods = {
